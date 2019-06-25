@@ -5,41 +5,40 @@ class Counter extends Component {
     count: 0,
     address: {
       street: ""
-    }
+    },
+    imageUrl: "https://picsum.photos/200",
+    tags: ["tag1", "tag2", "tag3"]
   };
+
   styles = {
-    fontSize: 10,
+    fontSize: 1000,
     fontWeight: "bold"
   };
 
   // {} for dynamic
 
-  constructor() {
-    super();
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
-
-  handleIncrement() {
-    console.log("Increment Click", this);
-  }
-
-  // handleIncrement = () => {
-  //   console.log("Increment Click", this);
-  // };
-
   render() {
+    // let classes = this.getBadgeClasses();
+
     return (
       <div>
+        <img src={this.state.imageUrl} alt="" />
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
-        <button
-          onClick={this.handleIncrement}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
+        <h1>Hello World</h1>
+        <button className="btn btn-secondary btn-sm">Increment</button>
+        <ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </div>
+
+      // <React.Fragment>
+      // <h1>Hello World</h1>
+      // <button>Increment</button>
+      // </React.Fragment>
     );
   }
 
