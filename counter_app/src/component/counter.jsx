@@ -16,16 +16,19 @@ class Counter extends Component {
 
   constructor() {
     super();
-    this.handleIncrement = this.handleIncrement.bind(this);
+    // this.handleIncrement = this.handleIncrement.bind(this);
   }
 
-  handleIncrement() {
+  // handleIncrementNotWithArrow() {
+  // console.log("Increment Click", this);
+  // }
+
+  handleIncrement = () => {
     console.log("Increment Click", this);
-  }
-
-  // handleIncrement = () => {
-  //   console.log("Increment Click", this);
-  // };
+    // this.state.count++;
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+  };
 
   render() {
     return (
